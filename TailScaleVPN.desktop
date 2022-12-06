@@ -1,0 +1,19 @@
+[Desktop Entry]
+Name=TailScaleVPN
+Comment=TailScaleVPN (Exit Node Switcher)
+GenericName=Utilities
+Exec=pkexec /usr/share/TailScaleVPN/TailScaleVPN
+Icon=/usr/share/TailScaleVPN/TailScaleVPN.png
+Type=Application
+StartupNotify=true
+Categories=GNOME;GTK;Utility;
+MimeType=text/plain;
+Terminal=false
+X-Ubuntu-Touch=true
+X-Ayatana-Appmenu-Show-Stubs=false
+X-Ubuntu-Single-Instance=true
+X-Ubuntu-Splash-Show-Header=false
+X-Ubuntu-Splash-Image=/usr/share/TailScaleVPN/TailScaleVPN.png
+X-Ubuntu-Splash-Color-Header=#3575db
+X-Ubuntu-Splash-Color=#3575db
+X-Ubuntu-Splash-Color-Footer=#3575db

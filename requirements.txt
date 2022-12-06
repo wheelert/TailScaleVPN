@@ -1,0 +1,2 @@
+dbus-python
+PyGObject~=3.42.2

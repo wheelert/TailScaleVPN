@@ -1,0 +1,23 @@
+GtkButton{
+    font-size: 6px;
+}
+
+#main{
+	background-color: #000
+}
+
+#list_row{
+	border-bottom: solid 1px #000000;
+}
+
+#list_row:hover{
+	background-color: #cfcfcf;
+}
+
+#title{
+	font-weight: bold;
+}
+
+#status-active{
+	color: chartreuse;
+}

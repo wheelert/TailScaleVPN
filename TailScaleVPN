@@ -1,0 +1,3 @@
+#!/bin/bash
+cd /usr/share/TailScaleVPN/
+/usr/bin/python /usr/share/TailScaleVPN/TailScaleVPN.py
