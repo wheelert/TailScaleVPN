@@ -10,6 +10,7 @@ gi.require_version('Handy', '1')
 from gi.repository import Handy
 import tailscaleDB
 import os
+import requests
 
 class TailScaleVPN(Gtk.Window):
     def __init__(self):
@@ -34,6 +35,10 @@ class TailScaleVPN(Gtk.Window):
 
         box_outer = Gtk.Box(orientation=Gtk.Orientation.VERTICAL, spacing=6)
         self.add(box_outer)
+
+        ip = self.get_ip()
+        self.label = Gtk.Label(ip)
+        vbox.add(self.label)
 
         self.listbox = Gtk.ListBox()
         self.listbox.set_selection_mode(Gtk.SelectionMode.NONE)
@@ -83,7 +88,11 @@ class TailScaleVPN(Gtk.Window):
             self.listbox.add(row)
             # end row
 
-
+    def get_ip(self):
+        _url = "http://ifconfig.me"
+        response = requests.get(_url)
+        ip = "IP: "+response.text
+        return ip
 
     def on_row_click(self, listbox, listboxrow):
         _node = tailscaleDB.getNode(listboxrow.get_index())
@@ -93,6 +102,8 @@ class TailScaleVPN(Gtk.Window):
 
         tailscaleDB.set_exit_node(_node["IP"])
         self.repopListbox()
+        self.label.set_text(self.get_ip())
+        return GLib.SOURCE_CONTINUE
 
     def repopListbox(self):
         tailscaleDB.clear_listnodes()
@@ -106,6 +117,8 @@ class TailScaleVPN(Gtk.Window):
     def disconnectAll(self, widget):
         tailscaleDB.disconnect_all()
         self.repopListbox()
+        self.label.set_text(self.get_ip())
+        return GLib.SOURCE_CONTINUE
 
     def AppClose(self, widget):
         exit()
