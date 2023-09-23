@@ -103,6 +103,7 @@ class TailScaleVPN(Gtk.Window):
         tailscaleDB.set_exit_node(_node["IP"])
         self.repopListbox()
         self.label.set_text(self.get_ip())
+        win.get_window().set_cursor(None)
         return GLib.SOURCE_CONTINUE
 
     def repopListbox(self):
@@ -112,7 +113,7 @@ class TailScaleVPN(Gtk.Window):
         time.sleep(5)
         self.pop_nodes()
         self.listbox.show_all()
-        win.get_window().set_cursor(None)
+
 
     def disconnectAll(self, widget):
         tailscaleDB.disconnect_all()
