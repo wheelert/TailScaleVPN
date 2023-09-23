@@ -45,7 +45,7 @@ def status_reset(_ip):
                                      universal_newlines=True)
 
 def set_exit_node(_ip):
-    child = subprocess.Popen(['tailscale', 'up', '--exit-node='+_ip], stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
+    child = subprocess.Popen(['tailscale', 'up', '--exit-node='+_ip, '--exit-node-allow-lan-access=true'], stdout=subprocess.PIPE, stderr=subprocess.STDOUT,
                              universal_newlines=True)
 
 def clear_listnodes():
